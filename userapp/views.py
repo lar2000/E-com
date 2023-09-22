@@ -26,7 +26,6 @@ def register(request):
                 is_staff = True,
                 is_superuser = True
             )
-                
             obj_user.save()
             
             messages.success(request, 'ລົງທະບຽນສຳເລັດແລ້ວ')
