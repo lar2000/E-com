@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'productsapp',
+    'userapp',
 ]
 
 MIDDLEWARE = [
@@ -85,11 +86,11 @@ WSGI_APPLICATION = 'shopping.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'ecomerce_db',
+        'NAME': 'ecom',
         'USER': 'root',
-        'PASSWORD': 'pia123',
-        'HOST': 'localhost',
-        'PORT': '3307',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 # Password validation
