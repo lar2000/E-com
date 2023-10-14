@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block title %} cart {% endblock %}
+{% block title %}  Your cart {% endblock %}
 
 {% block content %}
 <section class="h-100 h-custom my-5">
@@ -13,16 +13,18 @@
                                 <div class="p-5">
                                     <!-- สินค้าในตะกร้า -->
                                     <div class="d-flex justify-content-between align-items-center mb-5">
-                                        <h4 class="fw-bold mb-0 text-black">ລາຍການສັ່ງຊື້</h4>
-                                        <h6 class="mb-0 text-muted">x ລາຍການ</h6>
+                                        <h4 class="fw-bold mb-0 text-black">ລາຍການ</h4>
+                                        <h6 class="mb-0 text-muted">{{counter}} ລາຍການ</h6>
                                     </div>
                                     <hr class="my-4">
+
+                                    {% for item in cartItem %}
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <img src="https://placehold.co/200x200/" class="img-fluid rounded-3">
+                                            <img src="{{item.product.image.url}}" class="img-fluid rounded-3">
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">
-                                            <h6 class="text-black mb-0">1 x ຊື່ສິນຄ້າ</h6>
+                                            <h6 class="text-black mb-0">{{item.quantity}} x {{item.product.name}}</h6>
                                         </div>
                                         <div class="col-md-3 col-lg-2 col-xl-3 offset-lg-1">
                                             <h6 class="mb-0">xx,xxx</h6>
@@ -31,6 +33,8 @@
                                             <a href="#"><h5><i class="bi bi-trash3"></i></h5></a>
                                          </div>
                                         </div>
+                                        {% endfor %}
+
                                     <hr class="my-4">
                                 </div>
                             </div>
@@ -40,7 +44,7 @@
                                     <hr class="my-4">
                                     <div class="d-flex justify-content-between mb-5">
                                         <h5 class="text-uppercase">ຍອດການຊຳລະລວມ</h5>
-                                        <h5>xx บาท</h5>
+                                        <h5>{{total}} บาท</h5>
                                     </div>
                                     <a href="order.html">
                                         <button type="button" class="btn btn-primary w-100 text-center" data-mdb-ripple-color="dark">
